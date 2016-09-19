@@ -1,17 +1,20 @@
 import RPi.GPIO as GPIO
-from sakshat import SAKSHAT
 import time
+from sakshat import SAKSHAT
 SAKS = SAKSHAT()
 
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(23,GPIO.OUT)
-GPIO.setup(24,GPIO.OUT)
-GPIO.setup(27,GPIO.OUT)
+GPIO.setup(23,GPIO.OUT)#connect to A4988 STEP
+GPIO.setup(24,GPIO.OUT)#connect to A4988 DIR
+GPIO.setup(27,GPIO.OUT)#connect to A4988 ENABLE
 
 GPIO.output(27,GPIO.LOW)
 GPIO.output(24,GPIO.HIGH)
+def s_do(t):
+    #Sound_Do
+
 while 1:
     GPIO.output(23,GPIO.HIGH)
     time.sleep(.001)
